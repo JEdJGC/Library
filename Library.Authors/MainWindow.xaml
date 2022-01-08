@@ -1,0 +1,56 @@
+﻿<Window x:Class="Library.Authors.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library.Authors"
+        mc:Ignorable="d"
+        Title="Biblioteca.Autores" Height="350" Width="400">
+    <DockPanel>
+        <Border DockPanel.Dock="Bottom"
+                BorderBrush="LightGray"
+                BorderThickness="1"
+                Margin="8,4,8,8">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button Content="Nuevo"
+                        Margin="8"
+                        MinWidth="80"
+                        x:Name="NewAuthorButton"
+                        Click="NewAuthorButton_Click"/>
+
+                <Button Content="Modificar"
+                        Margin="8"
+                        MinWidth="80"
+                        x:Name="ModifyAuthorButton"
+                        Click="ModifyAuthorButton_Click"/>
+
+                <Button Content="Eliminar"
+                        Margin="8"
+                        MinWidth="80"
+                        x:Name="DeleteAuthorButton"
+                        Click="DeleteAuthorButton_Click"/>
+            </StackPanel>
+        </Border>
+        <Border DockPanel.Dock="Top"
+                Margin="8,8,8,4"
+                BorderBrush="LightGray"
+                BorderThickness="1">
+            <DataGrid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      AlternatingRowBackground="LightBlue"
+                      x:Name="AuthorsDataGrid">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Identificador"
+                                        Binding="{Binding AuthorId}"/>
+                    <DataGridTextColumn Header="Nombre de Pila"
+                                        Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Apellidos"
+                                        Binding="{Binding LastName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </DockPanel>
+</Window>
